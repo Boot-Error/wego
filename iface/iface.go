@@ -1,6 +1,7 @@
 package iface
 
 import (
+	"io"
 	"log"
 	"time"
 )
@@ -171,7 +172,7 @@ type Backend interface {
 
 type Frontend interface {
 	Setup()
-	Render(weather Data, unitSystem UnitSystem)
+	Render(writer io.Writer, weather Data, unitSystem UnitSystem)
 }
 
 var (

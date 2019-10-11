@@ -6,7 +6,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/schachmat/wego/iface"
+	"github.com/Boot-Error/wego/iface"
 )
 
 type jsnConfig struct {

@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
-	"github.com/schachmat/wego/iface"
+	"github.com/Boot-Error/wego/iface"
 	"io/ioutil"
 	"log"
 	"net/http"

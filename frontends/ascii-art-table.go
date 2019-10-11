@@ -10,9 +10,9 @@ import (
 	"strings"
 	"time"
 
+	"github.com/Boot-Error/wego/iface"
 	"github.com/mattn/go-colorable"
 	"github.com/mattn/go-runewidth"
-	"github.com/schachmat/wego/iface"
 )
 
 type aatConfig struct {
@@ -367,7 +367,7 @@ func (c *aatConfig) Setup() {
 	flag.BoolVar(&c.monochrome, "aat-monochrome", false, "aat-frontend: Monochrome output")
 }
 
-func (c *aatConfig) Render(r iface.Data, unitSystem iface.UnitSystem) {
+func (c *aatConfig) Render(r iface.Data, unitSystem iface.UnitSystem, writer io.Writer) {
 	c.unit = unitSystem
 
 	fmt.Printf("Weather for %s%s\n\n", r.Location, c.formatGeo(r.GeoLoc))
@@ -389,7 +389,7 @@ func (c *aatConfig) Render(r iface.Data, unitSystem iface.UnitSystem) {
 	}
 	for _, d := range r.Forecast {
 		for _, val := range c.printDay(d) {
-			fmt.Fprintln(stdout, val)
+			fmt.Fprintln(writer, val)
 		}
 	}
 }
